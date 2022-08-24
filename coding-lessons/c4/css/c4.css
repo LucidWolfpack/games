@@ -1,0 +1,56 @@
+
+body{
+  background-color: lightslategray;
+  color: black;
+}
+
+h1{
+  font-size: large;
+  text-align: center;
+}
+
+h3{
+  margin-top: 8px;
+}
+
+.reset{
+  margin-left: 96px;
+  height: 40px;
+  width: 70px;
+}
+
+.player{
+  text-align: center;
+  font-size: 27px;
+}
+
+.winner{
+  text-align: center;
+  font-size: 30px;
+}
+
+.toprow{
+  display: grid;
+  grid-template-columns: repeat(7, 80px);
+  grid-template-rows: repeat(1, 80px);
+  text-align: center;
+  justify-content: center;
+}
+
+.toprow div{
+  border: 2px solid black;
+}
+
+.gameboard{
+  padding-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(7, 80px);
+  grid-template-rows: repeat(6, 80px);
+  text-align: center;
+  justify-content: center;
+  transition: all .3s ease;  
+}
+
+.gameboard div{
+  border: 2px solid rgb(47, 47, 172);
+}
