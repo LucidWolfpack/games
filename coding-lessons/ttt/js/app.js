@@ -40,6 +40,18 @@ let boardstate = [
   null, null, null,
 ]
 
+
+const winningCombos = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [2, 4, 6]
+]
+
 const boardDisplay = document.querySelectorAll(".square")
 
 console.log(boardDisplay)
@@ -95,61 +107,12 @@ function showTurn() {
 
 
 function findWinner() {
-  if (boardstate[0] === 'X' && boardstate[1] === 'X' && boardstate[2] === 'X') {
-    winnerX = true;
-    displayWinner();
-  } else if (boardstate[0] === 'X' && boardstate[3] === 'X' && boardstate[6] === 'X') {
-    winnerX = true;
-    displayWinner();
-  } else if (boardstate[0] === 'X' && boardstate[4] === 'X' && boardstate[8] === 'X') {
-    winnerX = true;
-    displayWinner();
-  } else if (boardstate[1] === 'X' && boardstate[4] === 'X' && boardstate[7] === 'X') {
-    winnerX = true;
-    displayWinner();
-  } else if (boardstate[2] === 'X' && boardstate[5] === 'X' && boardstate[8] === 'X') {
-    winnerX = true;
-    displayWinner();
-  } else if (boardstate[3] === 'X' && boardstate[4] === 'X' && boardstate[5] === 'X') {
-    winnerX = true;
-    displayWinner();
-  } else if (boardstate[6] === 'X' && boardstate[7] === 'X' && boardstate[8] === 'X') {
-    winnerX = true;
-    displayWinner();
-  } else if (boardstate[2] === 'X' && boardstate[4] === 'X' && boardstate[6] === 'X') {
-    winnerX = true;
-    displayWinner();
-    } 
-
-    //* make one winner variable 
-  // else if (boardstate[0] === 'O' && boardstate[3] === 'O' && boardstate[6] === 'O') {
-  //   winnerO = true;
-  //   displayWinner();
-  // } else if (boardstate[0] === 'O' && boardstate[4] === 'O' && boardstate[8] === 'O') {
-  //   winnerO = true;
-  //   displayWinner();
-  // } else if (boardstate[1] === 'O' && boardstate[4] === 'O' && boardstate[7] === 'O') {
-  //   winnerO = true;
-  //   displayWinner();
-  // } else if (boardstate[2] === 'O' && boardstate[5] === 'O' && boardstate[8] === 'O') {
-  //   winnerO = true;
-  //   displayWinner();
-  // } else if (boardstate[3] === 'O' && boardstate[4] === 'O' && boardstate[5] === 'O') {
-  //   winnerO = true;
-  //   displayWinner();
-  // } else if (boardstate[6] === 'O' && boardstate[7] === 'O' && boardstate[8] === 'O') {
-  //   winnerO = true;
-  //   displayWinner();
-  // } else if (boardstate[2] === 'O' && boardstate[4] === 'O' && boardstate[6] === 'O') {
-  //   winnerO = true;
-  //   displayWinner();
-  // } else if (boardstate[0] === 'O' && boardstate[1] === 'O' && boardstate[2] === 'O') {
-  //   winnerO = true;
-  //   displayWinner();
-  // }
+ 
+   
 }
 // HOW CAN WE PREVENT A PLAYER FROM MAKING MOVES, AFTER A WINNER HAS BEEN DECLARED
 //** one winner variable */
+
 let winnerX = false;
 let winnerO = false;
 
@@ -163,13 +126,6 @@ function displayWinner() {
     boardDisplay.forEach((sq) => sq.removeEventListener('click', handleClick))
   }
 }
-
-// HOW CAN WE PREVENT A PLAYER FROM CLICKING ON ALREADY FILLED IN SQUARES AFTER A MOVE HAS BEEN MADE
-// function clicked(el, idx){
-//   if(el !== null){
-//     boardDisplay[idx].removeEventListener('click', handleClick)
-//   }else(el === null)
-// }
 
 // HOW CAN WE CHECK FOR A TIE?
 
@@ -186,25 +142,3 @@ function tie() {
 // WE CANNOT JUST UPDATE THE HTML DOC FOR THE USER (THOUGH WE ALSO WANT TO DO THAT)
 
 
-// **** reset button ****
-// want to use the .map() ; but reads as not a function. args mmust be wrong
-// tried: passing new blank array;
-//        adjusting each one in loop;
-// 
-
-
-function resetGame() {
-  console.log('button is pushed')
-  moves = 0;
-
-}
-
-
-
-//   return bagOfFruits ? bagOfFruits.map(fruit => fruit.replace('rotten','').toLowerCase()) : []
-
-//   const els = people.map(function(person, idx) {
-//      const el = document.createElement('div')
-//      el.innerHTML = `${person.name} <span>(${person.town})</span>`
-//      return el
-//   });
